@@ -1,44 +1,45 @@
 #include <iostream>
 #include <cstdlib>
-using namespace std;
+using namespace std; /// Простір імен
 
-class Matrix
+class Matrix  /// Визначення класу
 {
 
 private:
-    int** data;
+    int** data; /// Вказівник на двовимірний масив
     int rows;
     int cols;
 
 public:
     /// Конструктор класу
-    Matrix(int rows, int cols) : rows(rows), cols(cols) {
-        data = new int* [rows];
+    Matrix(int rows, int cols) : rows(rows), cols(cols)  /// Ініціалізує поля класу та виділяє пам'ять для матриці
+    {  
+        data = new int* [rows];  /// Виділення пам'яті для рядків
         for (int i = 0; i < rows; ++i) {
-            data[i] = new int[cols];
+            data[i] = new int[cols];   /// Виділення пам'яті для стовпців
             for (int j = 0; j < cols; ++j) {
-                data[i][j] = 0;
+                data[i][j] = 0;   /// Ініціалізація кожного елемента нулем
             }
         }
     }
     /// Деструктор класу
-    ~Matrix()
+    ~Matrix()   /// Видаляє виділену пам'ять
     {
         for (int i = 0; i < rows; i++)
         {
-            delete[] data[i];
+            delete[] data[i]; /// Видалення пам'яті рядків
         }
-        delete[] data;
+        delete[] data;  /// Видалення пам'яті вказівника
     }
 
     /// Метод генерації матриці
-    void generateMatrix(int min, int max)
+    void generateMatrix(int min, int max)  
     {
         for (int i = 0; i < rows; i++)
         {
             for (int j = 0; j < cols; j++)
             {
-                data[i][j] = rand() % (max - min + 1) + min;
+                data[i][j] = rand() % (max - min + 1) + min; /// Генерація емементів матриці
             }
         }
     }
@@ -47,12 +48,12 @@ public:
     void inputMatrix()
     {
         cout << "Enter the matrix elements";
-        for (int i = 0; i < rows; i++)
+        for (int i = 0; i < rows; i++) 
         {
             for (int j = 0; j < cols; j++)
             {
                 cout << "Enter the element in the position [" << i << "][" << j << "]: ";
-                cin >> data[i][j];
+                cin >> data[i][j];  /// Ввод елементів матриці
             }
         }
     }
@@ -64,7 +65,7 @@ public:
         {
             for (int j = 0; j < cols; j++)
             {
-                cout << data[i][j] << " ";
+                cout << data[i][j] << " "; /// Виведення елементів матриці
             }
             cout << endl;
         }
@@ -95,23 +96,23 @@ public:
         {
             for (int j = 0; j < cols; ++j)
             {
-                result.data[i][j] = data[i][j] * scalar;
+                result.data[i][j] = data[i][j] * scalar;  /// Множення кожного елемента на число
             }
         }
-        return result;
+        return result; /// Повернення результату
     }
 
     /// Операція транспонування матриці
     Matrix transpose() const
     {
-        Matrix result(cols, rows);
+        Matrix result(cols, rows); /// Створення транспонованої матриці з оберненмим розмірами
         for (int i = 0; i < rows; ++i)
         {
             for (int j = 0; j < cols; ++j)
             {
-                result.data[j][i] = data[i][j];
+                result.data[j][i] = data[i][j];  /// Заповнення елементів
             }
         }
-        return result;
+        return result; /// Повернення результату
     }
 };

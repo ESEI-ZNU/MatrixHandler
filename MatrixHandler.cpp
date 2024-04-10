@@ -1,166 +1,92 @@
 #include <iostream>
-#include <cstdlib>
 
-using namespace std;
+#include "ClassMatrix.cpp" ///Підключення файлу з класом
 
-class Matrix
-{
-
-private:
-    int** data;
-    int rows;
-    int cols;
-
-public:
-    // Конструктор класу
-    Matrix(int rows, int cols) : rows(rows), cols(cols) {
-        data = new int* [rows];
-        for (int i = 0; i < rows; ++i) {
-            data[i] = new int[cols];
-            for (int j = 0; j < cols; ++j) {
-                data[i][j] = 0;
-            }
-        }
-    }
-    // Деструктор класу
-    ~Matrix()
-    {
-        for (int i = 0; i < rows; i++)
-        {
-            delete[] data[i];
-        }
-        delete[] data;
-    }
-
-    // Метод генерації матриці
-    void generateMatrix(int min, int max)
-    {
-        for (int i = 0; i < rows; i++)
-        {
-            for (int j = 0; j < cols; j++)
-            {
-                data[i][j] = rand() % (max - min + 1) + min;
-            }
-        }
-    }
-
-    // Метод вводу матриці
-    void inputMatrix()
-    {
-        cout << "Enter the matrix elements";
-        for (int i = 0; i < rows; i++)
-        {
-            for (int j = 0; j < cols; j++)
-            {
-                cout << "Enter the element in the position [" << i << "][" << j << "]: ";
-                cin >> data[i][j];
-            }
-        }
-    }
-    // Метод виводу матриці
-    void outputMatrix()
-    {
-        cout << "Matrix:" << endl;
-        for (int i = 0; i < rows; i++)
-        {
-            for (int j = 0; j < cols; j++)
-            {
-                cout << data[i][j] << " ";
-            }
-            cout << endl;
-        }
-    }
-
-    // Операція множення двох матриць
-    Matrix multiply(const Matrix& other) const
-    {
-        Matrix result(rows, other.cols);
-        for (int i = 0; i < rows; ++i)
-        {
-            for (int j = 0; j < other.cols; ++j)
-            {
-                for (int k = 0; k < cols; ++k)
-                {
-                    result.data[i][j] += data[i][k] * other.data[k][j];
-                }
-            }
-        }
-        return result;
-    }
-
-    // Операція множення матриці на число
-    Matrix scalarMultiply(int scalar) const
-    {
-        Matrix result(rows, cols);
-        for (int i = 0; i < rows; ++i)
-        {
-            for (int j = 0; j < cols; ++j)
-            {
-                result.data[i][j] = data[i][j] * scalar;
-            }
-        }
-        return result;
-    }
-
-    // Операція транспонування матриці
-    Matrix transpose() const
-    {
-        Matrix result(cols, rows);
-        for (int i = 0; i < rows; ++i)
-        {
-            for (int j = 0; j < cols; ++j)
-            {
-                result.data[j][i] = data[i][j];
-            }
-        }
-        return result;
-    }
-};
+using namespace std; /// Простір імен
 
 int main()
 {
-
+    /// Ініціалізація змінних
     setlocale(LC_ALL, "");
-    int min = 1;
-    int max = 10;
+    string metod;  /// Змінна для вибора методу створення матриці
+    int min = 0;   /// Мінімальне значення для генерації матриці
+    int max = 0;   /// Максисальне значення для генерації матриці
     int rows;
     int cols;
+    string action;   /// Змінна для вибору дії
+
     cout << "Enter rows: ";
-    cin >> rows;
+    cin >> rows;   /// Ввод рядків матриці
     cout << "Enter cols: ";
-    cin >> cols;
+    cin >> cols;   /// Ввод строк матриці
 
-    Matrix matrix1(rows, cols);
-    Matrix matrix2(rows, cols);
+    Matrix matrix1(rows, cols);  /// Створення об'єкту першої матриці
+    Matrix matrix2(rows, cols);  /// Створення об'єкту другої матриці
 
-    matrix1.generateMatrix(min, max);
-    matrix2.generateMatrix(min, max);
+    cout << "Enter the matrix creation method(generate or input): ";
+    cin >> metod;   /// Вибір методу створення матриці
+    if (metod == "generate")
+    {
+        cout << "Enter the min: ";
+        cin >> min;       /// Ввод мінімального значення для генерації
+        cout << "Enter the max: ";
+        cin >> max;       /// Введення максимального значення для генерації
 
+        matrix1.generateMatrix(min, max);    /// Генерація першої матриці
+        matrix2.generateMatrix(min, max);    /// Генерація другої матриці
+    }
+    else if (metod == "input")
+    {
+
+        matrix1.inputMatrix();    /// Ввод першої матриці
+        matrix2.inputMatrix();    /// Ввод другої матриці
+
+    }
+    else {
+        cout << "Enter the correct method" << endl;  /// Помилка про не вірний ввод метода
+        return 0;
+    }
     cout << "First matrix:" << endl;
-    matrix1.outputMatrix();
+    matrix1.outputMatrix();   ///Виведення першої матриці
     cout << endl;
 
     cout << "Second matrix:" << endl;
-    matrix2.outputMatrix();
+    matrix2.outputMatrix();   /// Виведення другої матриці
     cout << endl;
 
-    Matrix multiplied = matrix1.multiply(matrix2);
-    cout << "Result of multiplication of the first and second matrices:" << endl;
-    multiplied.outputMatrix();
-    cout << endl;
-
-    int scalar;
-    cout << "Enter the number to multiply: ";
-    cin >> scalar;
-    Matrix scalarMultiplied = matrix1.scalarMultiply(scalar);
-    cout << "Result of multiplying a matrix by number " << scalar << ":" << endl;
-    scalarMultiplied.outputMatrix();
-    cout << endl;
-
-    Matrix transposed = matrix1.transpose();
-    cout << "Transposed first matrix:" << endl;
-    transposed.outputMatrix();
-    cout << endl;
+    cout << "select an action: " << endl;
+    cout << "x - multiplication of two matrices" << endl;
+    cout << "xn - matrix multiplication by a number" << endl;
+    cout << "t - matrix transposition" << endl;
+    cin >> action;    /// Вибір дії
+    if (action == "x")
+    {
+        Matrix multiplied = matrix1.multiply(matrix2); /// Множення матриць
+        cout << "Result of multiplication of the first and second matrices:" << endl;
+        multiplied.outputMatrix();  ///Виведення результату множення
+        cout << endl; 
+    }
+    else if (action == "xn")
+    {
+        int scalar;
+        cout << "Enter the number to multiply: ";
+        cin >> scalar; /// Ввод числа для множення 
+        Matrix scalarMultiplied = matrix1.scalarMultiply(scalar);  /// Множення матриці на число
+        cout << "Result of multiplying a matrix by number " << scalar << ":" << endl;
+        scalarMultiplied.outputMatrix();  /// Виведення результату
+        cout << endl;
+    }
+    else if (action == "t")
+    {
+        Matrix transposed = matrix1.transpose();  /// Транспонування матриці
+        cout << "Transposed first matrix:" << endl;
+        transposed.outputMatrix();  /// Виведення результату
+        cout << endl;
+    }
+    else 
+    {
+        cout << "Error";
+    }
 
     return 0;
 }
