@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "ClassMatrix.cpp" ///Підключення файлу з класом
+#include "MatrixOperationsDeveloper3.cpp" ///Підключення файлу з класом
 
 using namespace std; /// Простір імен
 
@@ -61,7 +61,7 @@ int main()
     cin >> action;    /// Вибір дії
     if (action == "x")
     {
-        Matrix multiplied = matrix1.multiply(matrix2); /// Множення матриць
+        Matrix multiplied = MatrixOperationsDeveloper3::multiply(matrix1, matrix2); /// Множення матриць
         cout << "Result of multiplication of the first and second matrices:" << endl;
         multiplied.outputMatrix();  ///Виведення результату множення
         cout << endl; 
@@ -71,14 +71,14 @@ int main()
         int scalar;
         cout << "Enter the number to multiply: ";
         cin >> scalar; /// Ввод числа для множення 
-        Matrix scalarMultiplied = matrix1.scalarMultiply(scalar);  /// Множення матриці на число
+        Matrix scalarMultiplied = MatrixOperationsDeveloper3::scalarMultiply(matrix1, scalar);  /// Множення матриці на число
         cout << "Result of multiplying a matrix by number " << scalar << ":" << endl;
         scalarMultiplied.outputMatrix();  /// Виведення результату
         cout << endl;
     }
     else if (action == "t")
     {
-        Matrix transposed = matrix1.transpose();  /// Транспонування матриці
+        Matrix transposed = MatrixOperationsDeveloper3::transpose(matrix1);  /// Транспонування матриці
         cout << "Transposed first matrix:" << endl;
         transposed.outputMatrix();  /// Виведення результату
         cout << endl;

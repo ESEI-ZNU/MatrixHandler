@@ -32,6 +32,22 @@ public:
         delete[] data;  /// Видалення пам'яті вказівника
     }
 
+    /// Метод для отримання кількості рядків матриці
+    int getRows() const
+    {
+        return rows;
+    }
+    /// Метод для отримання кількості стовпців матриці
+    int getCols() const
+    {
+        return cols;
+    }
+    /// Метод для отримання вказівника на двовимірний масив
+    int** getData() const
+    {
+        return data;
+    }
+
     /// Метод генерації матриці
     void generateMatrix(int min, int max)  
     {
@@ -69,50 +85,5 @@ public:
             }
             cout << endl;
         }
-    }
-
-    /// Операція множення двох матриць
-    Matrix multiply(const Matrix& other) const
-    {
-        Matrix result(rows, other.cols);
-        for (int i = 0; i < rows; ++i)
-        {
-            for (int j = 0; j < other.cols; ++j)
-            {
-                for (int k = 0; k < cols; ++k)
-                {
-                    result.data[i][j] += data[i][k] * other.data[k][j];
-                }
-            }
-        }
-        return result;
-    }
-
-    /// Операція множення матриці на число
-    Matrix scalarMultiply(int scalar) const
-    {
-        Matrix result(rows, cols);
-        for (int i = 0; i < rows; ++i)
-        {
-            for (int j = 0; j < cols; ++j)
-            {
-                result.data[i][j] = data[i][j] * scalar;  /// Множення кожного елемента на число
-            }
-        }
-        return result; /// Повернення результату
-    }
-
-    /// Операція транспонування матриці
-    Matrix transpose() const
-    {
-        Matrix result(cols, rows); /// Створення транспонованої матриці з оберненмим розмірами
-        for (int i = 0; i < rows; ++i)
-        {
-            for (int j = 0; j < cols; ++j)
-            {
-                result.data[j][i] = data[i][j];  /// Заповнення елементів
-            }
-        }
-        return result; /// Повернення результату
     }
 };

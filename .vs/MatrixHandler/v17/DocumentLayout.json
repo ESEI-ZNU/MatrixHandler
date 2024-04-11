@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\ukrlan\\source\\repos\\MatrixHandler\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{2183C617-643A-431B-BADA-B566334610E8}|MatrixHandler.vcxproj|C:\\Users\\ukrlan\\source\\repos\\MatrixHandler\\MatrixOperationsDeveloper3.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2183C617-643A-431B-BADA-B566334610E8}|MatrixHandler.vcxproj|solutionrelative:MatrixOperationsDeveloper3.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{2183C617-643A-431B-BADA-B566334610E8}|MatrixHandler.vcxproj|C:\\Users\\ukrlan\\source\\repos\\MatrixHandler\\MatrixHandler.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{2183C617-643A-431B-BADA-B566334610E8}|MatrixHandler.vcxproj|solutionrelative:MatrixHandler.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2183C617-643A-431B-BADA-B566334610E8}|MatrixHandler.vcxproj|C:\\USERS\\UKRLAN\\SOURCE\\REPOS\\MATRIXHANDLER\\CLASSMATRIX.CPP||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2183C617-643A-431B-BADA-B566334610E8}|MatrixHandler.vcxproj|solutionrelative:CLASSMATRIX.CPP||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +22,47 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MatrixHandler.cpp",
+              "DocumentMoniker": "C:\\Users\\ukrlan\\source\\repos\\MatrixHandler\\MatrixHandler.cpp",
+              "RelativeDocumentMoniker": "MatrixHandler.cpp",
+              "ToolTip": "C:\\Users\\ukrlan\\source\\repos\\MatrixHandler\\MatrixHandler.cpp",
+              "RelativeToolTip": "MatrixHandler.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFAAAAA2AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-09T19:53:42.024Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MatrixOperationsDeveloper3.cpp",
+              "DocumentMoniker": "C:\\Users\\ukrlan\\source\\repos\\MatrixHandler\\MatrixOperationsDeveloper3.cpp",
+              "RelativeDocumentMoniker": "MatrixOperationsDeveloper3.cpp",
+              "ToolTip": "C:\\Users\\ukrlan\\source\\repos\\MatrixHandler\\MatrixOperationsDeveloper3.cpp",
+              "RelativeToolTip": "MatrixOperationsDeveloper3.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-11T13:04:55.567Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ClassMatrix.cpp",
+              "DocumentMoniker": "C:\\Users\\ukrlan\\source\\repos\\MatrixHandler\\ClassMatrix.cpp",
+              "RelativeDocumentMoniker": "ClassMatrix.cpp",
+              "ToolTip": "C:\\Users\\ukrlan\\source\\repos\\MatrixHandler\\ClassMatrix.cpp",
+              "RelativeToolTip": "ClassMatrix.cpp",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAAFcAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-11T13:04:06.321Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
@@ -31,19 +78,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MatrixHandler.cpp",
-              "DocumentMoniker": "C:\\Users\\ukrlan\\source\\repos\\MatrixHandler\\MatrixHandler.cpp",
-              "RelativeDocumentMoniker": "MatrixHandler.cpp",
-              "ToolTip": "C:\\Users\\ukrlan\\source\\repos\\MatrixHandler\\MatrixHandler.cpp",
-              "RelativeToolTip": "MatrixHandler.cpp",
-              "ViewState": "AQIAAJMAAAAAAAAAAAAAAEMAAAAqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-09T19:53:42.024Z",
-              "EditorCaption": ""
             }
           ]
         }
