@@ -1,19 +1,20 @@
-#include <iostream>
-#include "ClassMatrix.cpp"
+#include <iostream> /// Підключення стандартної библіотеки засобів введення-виведення
+#include "ClassMatrix.cpp" /// Підключення файлу з класом Matrix
 
 using namespace std;
 
-class MatrixOperationsDeveloper3 
+class MatrixOperationsDeveloper3 ///Визначення класу MatrixOperationsDeveloper3
 {
 public:
-    /// Множення двох матриць
+    /// Функція ноження двох матриць
     static Matrix multiply(const Matrix& mat1, const Matrix& mat2) 
     {
-        int rows1 = mat1.getRows();
-        int cols1 = mat1.getCols();
-        int rows2 = mat2.getRows();
-        int cols2 = mat2.getCols();
+        int rows1 = mat1.getRows(); /// Кількість рядків першої матриці
+        int cols1 = mat1.getCols(); /// Кількість стовпців першої матриці
+        int rows2 = mat2.getRows(); /// Кількість рядків другої матриці
+        int cols2 = mat2.getCols(); /// Кількість стовпців другої матриці
 
+        /// Перевірка сумісності розмірів матриць для множення
         if (cols1 != rows2) 
         {
             cerr << "Error: Incompatible matrix sizes for multiplication" << endl;
@@ -38,11 +39,11 @@ public:
         return result;
     }
 
-    /// Множення матриці на число
+    /// Функція множення матриці на число
     static Matrix scalarMultiply(const Matrix& mat, int scalar) 
     {
-        int rows = mat.getRows();
-        int cols = mat.getCols();
+        int rows = mat.getRows(); /// Кількість рядків матриці
+        int cols = mat.getCols(); /// Кількість стовпців матриці
 
         Matrix result(rows, cols);
 
@@ -57,11 +58,11 @@ public:
         return result;
     }
 
-    /// Транспонування матриці
+    /// Функція транспонування матриці
     static Matrix transpose(const Matrix& mat) 
     {
-        int rows = mat.getRows();
-        int cols = mat.getCols();
+        int rows = mat.getRows(); /// Кількість рядків матриці
+        int cols = mat.getCols(); /// Кількість стовпців матриці
 
         Matrix result(cols, rows);
 
