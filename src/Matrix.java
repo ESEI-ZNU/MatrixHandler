@@ -1,45 +1,52 @@
-package mypackage;
+/**
+* Клас для роботи з матрцями.
+*
+* @author Савела Данил
+* @version 1.0
+*/
 
-import java.util.Random;
-import java.util.Scanner;
+package mypackage; // Оголошення пакету
 
-public class Matrix {
-    private final int rows;
-    private final int cols;
-    private final int[][] data;
+import java.util.Random; // Імпортуємо клас Random для генерації випадкових чисел
+import java.util.Scanner; // Імпортуємо Scanner для зчитування з клавіатури
 
-    public Matrix(int rows, int cols) {
-        this.rows = rows;
-        this.cols = cols;
-        this.data = new int[rows][cols];
+public class Matrix { // Оголошення класу Matrix
+    private final int rows; // Кількість рядків матриці
+    private final int cols; // Кількість стовпців матриці
+    private final int[][] data; // Двовимірний масив для зберігання елементів
+
+    public Matrix(int rows, int cols) { // Конструктор класу
+        this.rows = rows; // Ініціалізуємо кількість рядків
+        this.cols = cols; // Ініціалізуємо кількість стовпців
+        this.data = new int[rows][cols]; // Створюємо масив для зберігання елементів
     }
 
-    public void fillRandom(int min, int max) {
-        Random rand = new Random();
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                data[i][j] = rand.nextInt(max - min + 1) + min;
+    public void fillRandom(int min, int max) { // Метод заповнення випадковими числами
+        Random rand = new Random(); // Створюємо об'єкт генератора випадкових чисел
+        for (int i = 0; i < rows; i++) { // Проходимо по кожному рядку
+            for (int j = 0; j < cols; j++) { // Проходимо по кожному стовпцю
+                data[i][j] = rand.nextInt(max - min + 1) + min; // Генеруємо число в заданому діапазоні
             }
         }
     }
 
-    public void inputFromConsole(Scanner scanner) {
+    public void inputFromConsole(Scanner scanner) { // Метод ручного введення матриці
         System.out.println("Введіть елементи матриці розміром " + rows + "x" + cols + ":");
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                System.out.print("Елемент [" + i + "][" + j + "]: ");
-                data[i][j] = scanner.nextInt();
+        for (int i = 0; i < rows; i++) { // Ітеруємо по рядках
+            for (int j = 0; j < cols; j++) { // Ітеруємо по стовпцях
+                System.out.print("Елемент [" + i + "][" + j + "]: "); // Питаємо значення конкретного елемента
+                data[i][j] = scanner.nextInt(); // Зчитуємо введене значення
             }
         }
     }
 
-    public void printMatrix() {
+    public void printMatrix() { // Метод для виведення матриці
         System.out.println("Матриця:");
-        for (int[] row : data) {
-            for (int val : row) {
-                System.out.printf("%4d", val);
+        for (int[] row : data) { // Для кожного рядка
+            for (int val : row) { // Для кожного елемента у рядку
+                System.out.printf("%4d", val); // Виводимо елемент з відступами
             }
-            System.out.println();
+            System.out.println(); // Переходимо на новий рядок
         }
     }
 }
